@@ -1,0 +1,50 @@
+group 'com.starlight.starlight_epub_viewer'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.2.2'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+apply plugin: 'com.android.library'
+
+
+android {
+    compileSdkVersion 21
+    defaultConfig {
+        minSdkVersion 21
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+    compileOptions {
+        sourceCompatibility 1.7
+        targetCompatibility 1.7
+    }
+}
+
+dependencies {
+	        implementation 'com.github.Waqar27324:andoid_epubviewer:release'
+
+    // implementation "./FolioReader-Android"
+    implementation "androidx.multidex:multidex:2.0.1"
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.11.1'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.1'
+    implementation 'androidx.annotation:annotation:1.4.0'
+}
